@@ -112,7 +112,7 @@ uploaded_file = st.file_uploader("📤 Upload Excel file (.xls or .xlsx)", type=
 
 if uploaded_file:
     try:
-        df = pd.read_excel(uploaded_file, sheet_name="Donation", header=10)
+        df = pd.read_excel(uploaded_file, sheet_name="Donation", header=10, engine='openpyxl')
 
         required_columns = ['Date', 'Particulars', 'Consignee/Party Address', 'Voucher Type',
                             'Voucher No.', 'PAN No.', 'Narration', 'Gross Total', 'Donation']
