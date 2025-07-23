@@ -36,8 +36,9 @@ def generate_pdf(row):
     t_no = str(row['Voucher No.'])
     ref_no = str(row['Narration']).strip()
     donor_name = donor_name_clean.replace(" ", "_").replace("/", "-").replace("\\", "-")
-    serial_no = f"{voucher_no}_{donor_name}"
     donation_date = pd.to_datetime(row['Date']).strftime("%d-%m-%Y")
+    don_date = pd.to_datetime(row['Date']).strftime("%d_%B_%Y")
+    serial_no = f"{donor_name}_{voucher_no}_{don_date}"
 
     amount = int(row['Donation'])
     amount_words = num2words.num2words(amount, to='cardinal', lang='en').title() + " Rupees Only"
